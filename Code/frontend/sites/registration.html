@@ -7,21 +7,45 @@
     <title>Sign Up Fitness Coach</title>
   </head>
   <body>
-    <div class="registration">
-      <h2 class="title">Sign Up</h2>
-      <div class="user-details">
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" id="username" />
-        <label for="surname">Surname</label>
-        <input type="text" placeholder="Max" id="surname" />
-        <label for="lastname">Lastname</label>
-        <input type="text" placeholder="Mustermann" id="lastname" />
-        <label for="email">E-Mail</label>
-        <input type="text" placeholder="max.mustermann@gmail.com" id="email" />
-        <label for="password">Password</label>
-        <input type="password" id="password" />
-        <label for="password2">Repeat Password</label>
-        <input type="password" id="password2" />
+    <div class="container">
+      <div class="title">Sign Up</div>
+      <div class="registration">
+        <div class="user-details">
+          <div class="input-box">
+            <label class="details" for="username">Username</label>
+            <input type="text" placeholder="Username" id="username" required />
+          </div>
+          <div class="input-box">
+            <label class="details" for="surname">Surname</label>
+            <input type="text" placeholder="Max" id="surname" required />
+          </div>
+          <div class="input-box">
+            <label class="details" for="lastname">Lastname</label>
+            <input
+              type="text"
+              placeholder="Mustermann"
+              id="lastname"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label class="details" for="email">E-Mail</label>
+            <input
+              type="text"
+              placeholder="max.mustermann@gmail.com"
+              id="email"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label class="details" for="password">Password</label>
+            <input type="password" id="password" required />
+          </div>
+          <div class="input-box">
+            <label class="details" for="password2">Repeat Password</label>
+            <input type="password" id="password2" required />
+          </div>
+        </div>
       </div>
       <div class="button">
         <input type="submit" value="Sign Up" id="submit" onClick="signUp()" />
