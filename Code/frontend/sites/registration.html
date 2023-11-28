@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/registration.css" />
+    <title>Sign Up Fitness Coach</title>
+  </head>
+  <body>
+    <div class="registration">
+      <h2 class="title">Sign Up</h2>
+      <div class="user-details">
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username" />
+        <label for="surname">Surname</label>
+        <input type="text" placeholder="Max" id="surname" />
+        <label for="lastname">Lastname</label>
+        <input type="text" placeholder="Mustermann" id="lastname" />
+        <label for="email">E-Mail</label>
+        <input type="text" placeholder="max.mustermann@gmail.com" id="email" />
+        <label for="password">Password</label>
+        <input type="password" id="password" />
+        <label for="password2">Repeat Password</label>
+        <input type="password" id="password2" />
+      </div>
+      <div class="button">
+        <input type="submit" value="Sign Up" id="submit" onClick="signUp()" />
+      </div>
+    </div>
+
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>
