@@ -65,3 +65,6 @@ input {
 .user-details .input-box input:valid {
   border-color: #8400ff;
 }
+.error {
+  border-color: red;
+}
