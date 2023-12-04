@@ -4,7 +4,8 @@
   "description": "Eine Fitness App, bei der man sich Ziele setzen kann, die man erreichen will. Ebenso ist ChatGPT eingebunden, um angepasste Trainings und Ernährungspläne zu erstellen.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "author": "Bleron Regja",
   "license": "ISC",

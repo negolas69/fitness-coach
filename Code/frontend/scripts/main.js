@@ -1,3 +1,5 @@
+import axios from "axios";
+
 function signUp() {
   const username = document.getElementById("username");
   const firstname = document.getElementById("firstname");
@@ -13,5 +15,22 @@ function signUp() {
     password2.classList.add("error");
     alert("Passwords do not match");
     return;
+  } else {
+    axios
+      .post("http://localhost:3001/api/user", {
+        username: username,
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: password,
+        password2: password2,
+      })
+      .then((response) => {
+        console.log("success");
+        console.log(response);
+      });
   }
 }
+
+const elButton = document.getElementById("submit");
+elButton.addEventListener("click", signUp);
