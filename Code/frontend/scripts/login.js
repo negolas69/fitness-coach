@@ -19,8 +19,26 @@ async function login() {
   })
     .then((res) => res.json())
     .then((response) => {
+      const elP = document.getElementById("message");
+
       if (response.message === "Login successful") {
         window.location.href = "http://localhost:3001/index.html";
+      } else if (response.message === "Wrong password") {
+        elP.textContent = "Wrong password";
+        elP.classList.add("error");
+        elP.classList.remove("hidden");
+        password.value = "";
+        password.classList.add("error");
+        alert("Wrong password");
+      } else if (response.message === "User not found") {
+        elP.textContent = "User not found";
+        elP.classList.add("error");
+        elP.classList.remove("hidden");
+        password.value = "";
+        password.classList.add("error");
+        username.value = "";
+        username.classList.add("error");
+        alert("User not found");
       }
     });
 }

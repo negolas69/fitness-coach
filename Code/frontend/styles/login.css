@@ -55,10 +55,16 @@ input {
   border-bottom-width: 2px;
   transition: all 0.3s ease;
 }
-.user-details .input-box input:focus,
-.user-details .input-box input:valid {
+.input-box input:focus,
+.input-box input:valid {
   border-color: #8400ff;
 }
 .error {
   border-color: red;
+}
+p {
+  color: red;
+}
+.hidden {
+  display: none;
 }
