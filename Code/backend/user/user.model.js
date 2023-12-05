@@ -46,4 +46,24 @@ async function createUser(
   );
 }
 
-export { getUser, createUser };
+async function getUserByUsername(username) {
+  return new Promise((resolve, reject) => {
+    db.query(
+      "SELECT * FROM TUsers WHERE username=?;",
+      [username],
+      (err, result) => {
+        console.log(result);
+        if (err) {
+          console.log(err);
+        }
+        if (result.length == 0) {
+          resolve([]);
+        } else if (result.length > 0) {
+          resolve(result);
+        }
+      }
+    );
+  });
+}
+
+export { getUser, getUserByUsername, createUser };

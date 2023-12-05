@@ -1,4 +1,4 @@
-import { getUser, createUser } from "./user.model.js";
+import { getUser, createUser, getUserByUsername } from "./user.model.js";
 
 async function create(req, res) {
   const username = req.body.username;
@@ -25,4 +25,23 @@ async function create(req, res) {
   }
 }
 
-export { create };
+async function login(req, res) {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  const results = await getUserByUsername(username);
+
+  console.log(results);
+
+  if (results.length == 0) {
+    res.send({ message: "User not found" });
+  } else if (results.length > 0) {
+    if (results[0].password == password) {
+      res.send({ message: "Login successful" });
+    } else {
+      res.send({ message: "Wrong password" });
+    }
+  }
+}
+
+export { create, login };
