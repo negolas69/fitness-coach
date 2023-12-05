@@ -9,7 +9,10 @@ async function create(req, res) {
   const password2 = req.body.password2;
 
   const results = await getUser(username, email);
-  if (results == undefined) {
+
+  console.log(results);
+
+  if (results.length == 0) {
     const result = await createUser(
       username,
       firstname,
@@ -18,6 +21,7 @@ async function create(req, res) {
       password,
       password2
     );
+    res.send({ message: "User created successfully" });
   }
 }
 

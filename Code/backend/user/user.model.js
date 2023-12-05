@@ -7,32 +7,40 @@ const db = mysql.createConnection({
   database: "d03ed050",
 });
 
-function getUser(username, email) {
-  db.query(
-    "SELECT * FROM TUsers WHERE username=? AND email=?",
-    [username, email],
-    (err, result) => {
-      if (err) {
-        console.log(err);
+async function getUser(username, email) {
+  return new Promise((resolve, reject) => {
+    db.query(
+      "SELECT * FROM TUsers WHERE username=? AND email=?;",
+      [username, email],
+      (err, result) => {
+        console.log(result);
+        if (err) {
+          console.log(err);
+        }
+        if (result.length == 0) {
+          resolve([]);
+        } else if (result.length > 0) {
+          resolve(result);
+        }
       }
-      if (result.length > 0) {
-        res.send({ message: "Benutzer existiert" });
-      } else {
-        res.send(undefined);
-      }
-    }
-  );
+    );
+  });
 }
 
-function createUser(username, firstname, lastname, email, password, password2) {
+async function createUser(
+  username,
+  firstname,
+  lastname,
+  email,
+  password,
+  password2
+) {
   db.query(
     "INSERT INTO TUsers (username,firstname,lastname,email,password,password2) VALUES (?, ?, ?, ?, ?, ?)",
     [username, firstname, lastname, email, password, password2],
     (err) => {
       if (err) {
         console.log("user error", err);
-      } else {
-        res.send({ message: "User eingefügt" });
       }
     }
   );
