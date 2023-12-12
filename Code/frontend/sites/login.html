@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/login.css" />
+    <title>Log In Fitness Coach</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Log In</div>
+      <div class="Login">
+        <div class="input-box">
+          <label class="details" for="username">Username</label>
+          <input type="text" placeholder="Username" id="username" required />
+        </div>
+
+        <div class="input-box">
+          <label class="details" for="password">Password</label>
+          <input type="password" id="password" required />
+        </div>
+      </div>
+      <p id="message" class="message hidden"></p>
+      <div class="button">
+        <input type="submit" value="Sign Up" id="submit" />
+      </div>
+    </div>
+
+    <script type="module" src="../scripts/login.js"></script>
+  </body>
+</html>
