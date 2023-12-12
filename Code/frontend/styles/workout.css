@@ -1,0 +1,42 @@
+* {
+  font-family: sans-serif;
+  margin: 0;
+}
+body {
+  height: 100vh;
+  background: linear-gradient(120deg, #f700ff, #8400ff);
+}
+h1 {
+  color: white;
+  margin-top: 140px;
+  text-align: center;
+  font-size: 60px;
+}
+.nav {
+  height: 75px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.nav a {
+  font-weight: bold;
+  color: white;
+  text-decoration: none !important;
+  margin: 40px;
+}
+.nav a:hover {
+  height: 100%;
+  align-items: center;
+}
+.try-btn {
+  background-color: #f700ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  justify-content: center;
+  cursor: pointer;
+}

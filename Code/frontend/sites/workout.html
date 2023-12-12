@@ -3,23 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/workout.css" />
     <title>Chat with GPT-3</title>
   </head>
   <body>
-    <h1>Chat with GPT-3.5</h1>
-    <form id="chat-form">
-      <textarea
-        id="prompt"
-        rows="4"
-        cols="50"
-        placeholder="Enter your prompt"
-      ></textarea
-      ><br />
-      <button type="submit">Submit</button>
-    </form>
-    <h2>Response:</h2>
-    <div id="response"></div>
-
+    <div class="nav">
+      <a href="../index.html">Home</a>
+      <a href="sites/workout.html">Workouts</a>
+      <a href="sites/exercises.html">Exercises</a>
+      <a href="sites/login.html">Log in</a>
+      <a href="sites/registration.html">Sign up</a>
+    </div>
+    <div class="chat">
+      <h1>Asks GPT-3.5 for Workouts</h1>
+      <button class="try-btn" id="try-btn">Try it now!</button>
+      <form id="chat-form">
+        <textarea
+          id="prompt"
+          rows="4"
+          cols="50"
+          placeholder="Enter your prompt"
+        ></textarea
+        ><br />
+        <button type="submit">Submit</button>
+      </form>
+      <h2>Response:</h2>
+      <div id="response"></div>
+    </div>
     <script src="../scripts/workout.js"></script>
   </body>
 </html>
