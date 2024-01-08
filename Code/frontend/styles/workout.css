@@ -31,7 +31,8 @@ h1 {
   align-items: center;
 }
 .try-btn {
-  background-color: #f700ff;
+  margin-top: 20px;
+  background-color: #8105bb;
   color: white;
   border: none;
   border-radius: 10px;
@@ -39,4 +40,32 @@ h1 {
   font-size: 20px;
   justify-content: center;
   cursor: pointer;
+}
+.chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.chat button {
+  margin-top: 20px;
+  background-color: #8105bb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  justify-content: center;
+  cursor: pointer;
+}
+#prompt {
+  margin-top: 30px;
+  font-size: large;
+  color: black;
+  border-radius: 10px;
+}
+.response {
+  background: white;
+  border-radius: 10px;
+  border: black solid 2px;
 }

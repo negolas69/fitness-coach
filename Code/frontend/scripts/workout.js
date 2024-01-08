@@ -11,6 +11,7 @@ document.getElementById("chat-form").addEventListener("submit", function (e) {
     .then((response) => response.json())
     .then((data) => {
       document.getElementById("response").innerText = data.response;
+      document.getElementById("response").classList.add("response");
     })
     .catch((err) => {
       console.error("Error:", err);
