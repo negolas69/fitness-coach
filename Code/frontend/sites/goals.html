@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/goals.css" />
+    <title>Fitness Coach</title>
+  </head>
+  <body>
+    <div class="nav">
+    <a href="../index.html">Home</a>
+      <a href="workout.html">Workouts</a>
+      <a href="exercises.html">Exercises</a>
+      <a href="goals.html">Goals</a>
+      <a href="login.html">Log in</a>
+      <a href="registration.html">Sign up</a>
+    </div>
+
+<form id="fitnessGoalsForm">
+  <input type="text" id="fitnessGoal" placeholder="Trainingsziel" required>
+  <input type="text" id="fitnessLevel" placeholder="Fitnesslevel" required>
+  <input type="number" id="availableTime" placeholder="Verfügbare Zeit in Stunden" required>
+  <button type="submit">Ziele speichern</button>
+</form>
+<div id="goalsList"></div>
+    <script src="../scripts/goals.js"></script>
+  </body>
+</html>
