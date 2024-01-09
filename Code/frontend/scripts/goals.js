@@ -1,4 +1,5 @@
-// main.js
+import { checkCookieSites } from "./checkLogin.js";
+
 async function saveFitnessGoals() {
   const fitnessGoal = document.getElementById("fitnessGoal").value;
   const fitnessLevel = document.getElementById("fitnessLevel").value;
@@ -103,5 +104,9 @@ function getCookie(name) {
 }
 
 window.onload = function () {
-  loadGoals();
+  const cookie = getCookie("username");
+  if (cookie) {
+    checkCookieSites();
+    loadGoals();
+  }
 };

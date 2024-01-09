@@ -1,3 +1,5 @@
+import { checkCookieMain } from "./checkLogin.js";
+
 function getCookie(name) {
   var cname = name + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -25,10 +27,6 @@ function setCookie(cname, cvalue, exdays) {
   console.log(getCookie("username"));
 }
 
-function checkCookies() {
-  getCookie("username");
-}
-
 function getQueryParam(param) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
@@ -39,24 +37,8 @@ window.onload = function () {
   const cookie = getCookie("username");
   if (username) {
     setCookie("username", username, 30);
-    const elNav = document.querySelector(".nav");
-    const elLogin = document.querySelector("a[href='sites/login.html']");
-    const elRegister = document.querySelector(
-      "a[href='sites/registration.html']"
-    );
-    const elLogout = document.createElement("a");
-    elLogout.textContent = "Logout";
-    elLogout.classList.add("logout");
-    elNav.appendChild(elLogout);
-    elLogout.addEventListener("click", () => {
-      setCookie("username", "", -1);
-      window.location.href = "index.html";
-    });
-
-    elLogin.innerHTML = "";
-    elRegister.innerHTML = "";
+    checkCookieMain();
   } else if (cookie) {
-    const elNav = document.querySelector(".nav");
-    console.log(elNav);
+    checkCookieMain();
   }
 };
