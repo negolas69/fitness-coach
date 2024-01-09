@@ -40,8 +40,21 @@ window.onload = function () {
   if (username) {
     setCookie("username", username, 30);
     const elNav = document.querySelector(".nav");
-    const elLogin = document.querySelector("a[href='login.html']");
-    console.log(elNav, elLogin);
+    const elLogin = document.querySelector("a[href='sites/login.html']");
+    const elRegister = document.querySelector(
+      "a[href='sites/registration.html']"
+    );
+    const elLogout = document.createElement("a");
+    elLogout.textContent = "Logout";
+    elLogout.classList.add("logout");
+    elNav.appendChild(elLogout);
+    elLogout.addEventListener("click", () => {
+      setCookie("username", "", -1);
+      window.location.href = "index.html";
+    });
+
+    elLogin.innerHTML = "";
+    elRegister.innerHTML = "";
   } else if (cookie) {
     const elNav = document.querySelector(".nav");
     console.log(elNav);
