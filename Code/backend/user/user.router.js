@@ -7,7 +7,6 @@ const router = Router();
 router.post("/create", create);
 router.post("/login", login);
 router.post("/saveGoals", saveGoals);
-router.get("/goals", getGoals);
-  
+router.post("/goals", getGoals);
 
 export { router };

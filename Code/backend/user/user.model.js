@@ -66,22 +66,32 @@ async function getUserByUsername(username) {
   });
 }
 
-async function saveUserGoals(username, fitnessGoal, fitnessLevel, availableTime) {
+async function saveUserGoals(
+  username,
+  fitnessGoal,
+  fitnessLevel,
+  availableTime
+) {
   return new Promise((resolve, reject) => {
-    const query = "INSERT INTO TGoals (username, goal, level, time) VALUES (?, ?, ?, ?)";
-    db.query(query, [username, fitnessGoal, fitnessLevel, availableTime], (err, result) => {
-      if (err) {
-        console.error("Fehler beim Speichern der Trainingsziele: ", err);
-        return reject(err);
+    const query =
+      "INSERT INTO TGoals (GoalUsername, GoalTarget, GoalLevel, GoalTime) VALUES (?, ?, ?, ?)";
+    db.query(
+      query,
+      [username, fitnessGoal, fitnessLevel, availableTime],
+      (err, result) => {
+        if (err) {
+          console.error("Fehler beim Speichern der Trainingsziele: ", err);
+          return reject(err);
+        }
+        resolve(result);
       }
-      resolve(result);
-    });
+    );
   });
 }
 
 async function getUserGoals(username) {
   return new Promise((resolve, reject) => {
-    const query = "SELECT * FROM TGoals WHERE username=?";
+    const query = "SELECT * FROM TGoals WHERE GoalUsername=?";
     db.query(query, [username], (err, results) => {
       if (err) {
         return reject(err);

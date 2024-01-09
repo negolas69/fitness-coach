@@ -1,46 +1,49 @@
-async function signUp() {
-  const username = document.getElementById("username");
-  const firstname = document.getElementById("firstname");
-  const lastname = document.getElementById("lastname");
-  const email = document.getElementById("email");
-  const password = document.getElementById("password");
-  const password2 = document.getElementById("password2");
-
-  const data = {
-    username: username.value,
-    firstname: firstname.value,
-    lastname: lastname.value,
-    email: email.value,
-    password: password.value,
-    password2: password2.value,
-  };
-
-  console.log(data);
-
-  if (password.value != password2.value) {
-    password.value = "";
-    password2.value = "";
-    password.classList.add("error");
-    password2.classList.add("error");
-    alert("Passwords do not match");
-    return;
-  } else {
-    await fetch("http://localhost:3001/api/user/create", {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        if (response.message === "User created successfully") {
-          window.location.href = "http://localhost:3001/sites/login.html";
-        }
-      });
+function getCookie(name) {
+  var cname = name + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(cname) == 0) {
+      return c.substring(cname.length, c.length);
+    }
   }
+  return "";
 }
 
-const elButton = document.getElementById("submit");
-elButton.addEventListener("click", signUp);
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + d.toUTCString();
+  const path = "path=/"; // Set the path to the root ("/")
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";" + path;
+  const cookiess = cname + "=" + cvalue + ";" + expires + ";" + path;
+  console.log(cookiess);
+  console.log(getCookie("username"));
+}
+
+function checkCookies() {
+  getCookie("username");
+}
+
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+window.onload = function () {
+  let username = getQueryParam("user");
+  const cookie = getCookie("username");
+  if (username) {
+    setCookie("username", username, 30);
+    const elNav = document.querySelector(".nav");
+    const elLogin = document.querySelector("a[href='login.html']");
+    console.log(elNav, elLogin);
+  } else if (cookie) {
+    const elNav = document.querySelector(".nav");
+    console.log(elNav);
+  }
+};

@@ -22,7 +22,8 @@ async function login() {
       const elP = document.getElementById("message");
 
       if (response.message === "Login successful") {
-        window.location.href = "http://localhost:3001/index.html";
+        window.location.href =
+          "http://localhost:3001/index.html?user=" + data.username;
       } else if (response.message === "Wrong password") {
         elP.textContent = "Wrong password";
         elP.classList.add("error");
