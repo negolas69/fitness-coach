@@ -32,7 +32,7 @@ app.post("/api/query", async (req, res) => {
     const response = await openai.completions.create({
       model: "gpt-3.5-turbo-instruct",
       prompt: question,
-      max_tokens: 150,
+      max_tokens: 3050,
     });
 
     console.log(response);
