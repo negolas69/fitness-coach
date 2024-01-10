@@ -64,14 +64,14 @@ body {
 
 #goalsList {
   width: 90%;
-  max-width: 600px;
+  max-width: 1000px;
   margin-top: 20px;
 }
 
 #goalsList div {
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap: 195px;
   background: #fff;
   padding: 15px;
   margin-bottom: 10px;

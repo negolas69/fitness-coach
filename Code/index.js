@@ -1,5 +1,6 @@
 import express from "express";
 import { router as userRouter } from "./backend/user/user.router.js";
+import { goalsRouter } from "./backend/goals/goals.router.js";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 app.use("/api/user", userRouter);
+app.use("/api/user", goalsRouter);
 
 const apiKey = process.env.OPEN_AI_KEY;
 console.log("API Key:", apiKey);

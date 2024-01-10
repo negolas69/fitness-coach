@@ -67,25 +67,32 @@ async function loadGoals() {
         goalElement.appendChild(elLevel);
         goalElement.appendChild(elTime);
 
-        const completeButton = document.createElement("button");
-        completeButton.innerText = "Erledigt";
-        completeButton.addEventListener("click", () => completeGoal(goal.id));
-
-        goalElement.appendChild(completeButton);
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = "goal-" + goal.id;
+        checkbox.addEventListener("click", () => completeGoal(goal.id));
+      
+        goalElement.appendChild(checkbox);
         goalsListElement.appendChild(goalElement);
       });
     });
 }
 
 async function completeGoal(goalId) {
-  await fetch(`/api/user/goals/${goalId}/complete`, {
+  await fetch("http://localhost:3001/api/user/removeGoal", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ goalId: goalId, username: getCookie("username") }),
+  })
+  .then((res) => res.json())
+  .then((response) => {
+    console.log(response);
+    loadGoals(); // Aktualisieren Sie die Liste der Ziele
   });
-
-  console.log(`Ziel ${goalId} als erledigt markiert.`);
-
-  loadGoals();
 }
+
 
 function getCookie(name) {
   var cname = name + "=";
